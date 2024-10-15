@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "f27c6573-7e8f-41f0-8bfd-7774ec3119e1",
+		"name": "CREATE_USER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE_USER",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3409131d-8578-40b6-a602-bf89c8e70e54",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c35718a5-51dc-449f-9c1a-29799e7ed47d",
+						"exec": [
+							"\r",
+							"const result = JSON.parse(responseBody) \r",
+							"var status = pm.response.status;\r",
+							"\r",
+							"pm.test(\"Validate CreateUser \", () => {\r",
+							"    const expectedStatusCode = pm.iterationData.get(\"Exp_statusCode\");\r",
+							"  pm.expect(pm.response.code).to.be.eql(expectedStatusCode); \r",
+							"  \r",
+							"  if(expectedStatusCode===201){        \r",
+							"  pm.expect(result.user_first_name).to.eql(pm.iterationData.get(\"First_Name\"));  \r",
+							"  pm.collectionVariables.set(\"FIRST_NAME\", result.user_first_name);\r",
+							"  pm.collectionVariables.set(\"USER_ID\",result.user_id);\r",
+							"}\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "89a2bd5a-0456-4fcf-8327-a43e97c1e4fa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"user_first_name\":  \"{{First_Name}}\",\r\n \"user_last_name\":  \"{{Last_Name}}\"  ,       \r\n \"user_contact_number\": {{Contact_Number}} ,\r\n \"user_email_id\": \"{{Email_Id}}\",\r\n\"userAddress\": {   \r\n    \"plotNumber\" :\"{{Plot_Number}}\",\r\n   \"street\": \"{{Street}}\",\r\n   \"state\": \"{{State}}\",\r\n    \"country\": \"{{Country}} \",\r\n   \"zipCode\": {{ZipCode}} \r\n }\r\n}\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}{{Create_User_Endpoint}}"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "86cccc5b-8bb8-4430-8e99-513dd225f0fa",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const username = pm.iterationData.get(\"UserName\");\r",
+					"const password = pm.iterationData.get(\"Password\");\r",
+					"const base64Credentials = btoa(username + \":\" + password);\r",
+					"pm.request.headers.add({\r",
+					"    key: 'Authorization',\r",
+					"    value: 'Basic ' + base64Credentials\r",
+					"});\r",
+					"\r",
+					"\r",
+					"\r",
+					"const contentType = pm.iterationData.get(\"content-type\");\r",
+					"\r",
+					"// Set the content type header\r",
+					"pm.request.headers.add({\r",
+					"    key: \"Content-Type\",\r",
+					"    value: contentType\r",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "52537b97-24ce-4446-a7b1-5ec0b57bea77",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"// Load data from file\r",
+					"\t\t\t\t\tif (typeof pm.variables.get('requestsData') !== 'object') {\r",
+					"\t\t\t\t\t    pm.variables.set('requestsData', pm.iterationData.toObject());\r",
+					"\t\t\t\t\t}\r",
+					"\t\t\t\t\tconst requestsData = pm.variables.get('requestsData');\r",
+					"\t\t\t\t\r",
+					"\t\t\t\t\tif (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {\r",
+					"\t\t\t\t\t    console.log('No external data provided or object is empty.');\r",
+					"\t\t\t\t\t    return;\r",
+					"\t\t\t\t\t}\r",
+					"\t\t\t\t\t\r",
+					"\t\t\t\t\t// Find the current request\r",
+					"\t\t\t\t\tconst currentRequest = requestsData.requests.filter(({name}) => name === pm.info.requestName)[0];\r",
+					"\t\t\t\t\t\r",
+					"\t\t\t\t\t// Skip the rest since we have no data\r",
+					"\t\t\t\t\tif (!currentRequest) {\t\t\t\t\t    \r",
+					"\t\t\t\t\t    return;\r",
+					"\t\t\t\t\t}\r",
+					"\t\t\t\t\t\r",
+					"\t\t\t\t\t// Expose variables\r",
+					"\t\t\t\t\tconst variables = currentRequest.data.shift();\r",
+					"\t\t\t\t\t\r",
+					"\t\t\t\t\tfor (const [key,value] of Object.entries(variables)) {\r",
+					"\t\t\t\t\t    pm.variables.set(key, value);\r",
+					"\r",
+					"\t\t\t\t\t}\r",
+					"\t\t\t\t\t\r",
+					"\t\t\t\t\tpm.variables.set('requestsData', requestsData);\r",
+					"\t\t\t\t\t//pm.variables.set(\"first_name\",currentRequest.data.user_first_name);\r",
+					"\r",
+					"\t\t\t\t\t// Decide where to go next\r",
+					"\t\t\t\t\tif (currentRequest.data.length > 0) {\r",
+					"\t\t\t\t\t    pm.execution.setNextRequest(pm.info.requestName);\r",
+					"\t\t\t\t\t}\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "https://userserviceapp-f5a54828541b.herokuapp.com/uap",
+			"type": "string"
+		},
+		{
+			"key": "FIRST_NAME",
+			"value": ""
+		},
+		{
+			"key": "USER_ID",
+			"value": ""
+		}
+	]
+}
