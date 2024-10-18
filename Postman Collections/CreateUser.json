@@ -66,19 +66,6 @@
 				"url": "{{BaseURL}}{{Create_User_Endpoint}}"
 			},
 			"response": []
-		},
-		{
-			"name": "New Request",
-			"id": "2bd7ceb3-7214-43e2-8b46-38cffd80e68d",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": "{{BaseURL}}{{Create_User_Endpoint}}"
-			},
-			"response": []
 		}
 	],
 	"auth": {
@@ -92,25 +79,10 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "58cc3376-038f-4172-99fb-8bd0a1ade2fb",
+				"id": "d3aee870-0ce4-4a13-a607-af73f21b3c02",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
-					"\r",
 					"\r",
 					"const contentType = pm.iterationData.get(\"content-type\");\r",
 					"\r",
@@ -125,7 +97,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "eefbf78d-6e6e-4228-aa8d-16ce58d2cb71",
+				"id": "b950b68f-618b-4c50-88a5-70a39edf46e2",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
