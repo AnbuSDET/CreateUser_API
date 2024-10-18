@@ -68,21 +68,22 @@
 			"response": []
 		}
 	],
+	"auth": {
+		"type": "basic",
+		"basic": {
+			"password": "userapi@october",
+			"username": "Numpy@gmail.com"
+		}
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "29ef97eb-def7-4b6a-8936-0f523f3d7355",
+				"id": "a5750d02-0e7e-4f22-964b-7a0ac8edfa3a",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"const username = pm.iterationData.get(\"UserName\");\r",
-					"const password = pm.iterationData.get(\"Password\");\r",
-					"const base64Credentials = btoa(username + \":\" + password);\r",
-					"pm.request.headers.add({\r",
-					"    key: 'Authorization',\r",
-					"    value: 'Basic ' + base64Credentials\r",
-					"});\r",
+					"\r",
 					"\r",
 					"\r",
 					"\r",
@@ -99,7 +100,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "299a44be-68d3-45b3-a6f6-2eb8c6b19815",
+				"id": "2a1ddb67-569e-46d9-840c-6f6f8628aa0f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
