@@ -79,13 +79,10 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a5750d02-0e7e-4f22-964b-7a0ac8edfa3a",
+				"id": "3ca532df-5dcf-46ba-bad1-4ac77540c795",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"\r",
-					"\r",
-					"\r",
 					"\r",
 					"const contentType = pm.iterationData.get(\"content-type\");\r",
 					"\r",
@@ -100,7 +97,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "2a1ddb67-569e-46d9-840c-6f6f8628aa0f",
+				"id": "1b96f929-4cbc-409b-b93c-c7bd7dbed8fd",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
