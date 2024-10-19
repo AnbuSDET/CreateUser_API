@@ -87,6 +87,18 @@
 				"url": "{{BaseURL}}{{GetId_Endpoint}}{{userId}}"
 			},
 			"response": []
+		},
+		{
+			"name": "DELETE_USER",
+			"id": "35b8e628-bda0-43b2-b469-ee3aec2e5bd3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	],
 	"auth": {
