@@ -31,13 +31,13 @@
 							"pm.test(\"Validate CreateUser \", () => {\r",
 							"    const expectedStatusCode = pm.iterationData.get(\"Exp_statusCode\");\r",
 							"  pm.expect(pm.response.code).to.be.eql(expectedStatusCode); \r",
+							"\r",
+							"});\r",
 							"  \r",
-							"  if(expectedStatusCode===201){        \r",
 							"  pm.expect(result.user_first_name).to.eql(pm.iterationData.get(\"First_Name\"));  \r",
 							"  pm.collectionVariables.set(\"FIRST_NAME\", result.user_first_name);\r",
 							"  pm.collectionVariables.set(\"USER_ID\",result.user_id);\r",
-							"}\r",
-							"});"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
