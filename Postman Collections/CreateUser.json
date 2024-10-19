@@ -66,6 +66,18 @@
 				"url": "{{BaseURL}}{{Create_User_Endpoint}}"
 			},
 			"response": []
+		},
+		{
+			"name": "GETUSER",
+			"id": "7fe85bc2-a107-4b30-b40a-4442fe1b29c9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	],
 	"auth": {
