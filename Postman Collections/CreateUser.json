@@ -105,7 +105,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d5b54c2e-1919-4a78-bb0b-e775076ea8c3",
+				"id": "e115db5c-9473-412c-a1cb-383626de0135",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -139,11 +139,7 @@
 					"    pm.variables.set(key, value); // Set each variable in Postman\r",
 					"}\r",
 					"\r",
-					"// Validate the response based on the expected status code\r",
-					"const expectedStatusCode = variables.expectedStatusCode;\r",
-					"pm.test(`Expected status code is ${expectedStatusCode}`, function () {\r",
-					"    pm.response.to.have.status(expectedStatusCode);\r",
-					"});\r",
+					"\r",
 					"\r",
 					"// Decide where to go next\r",
 					"if (currentRequest.data.length > 0) {\r",
@@ -158,7 +154,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "769930af-b471-4552-bf86-2317531badcc",
+				"id": "5bb79e3e-9565-4628-9430-41982df9c3e7",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
