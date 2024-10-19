@@ -76,7 +76,20 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{BaseURL}}{{GetId_Endpoint}}"
+				"url": "{{BaseURL}}{{GetId_Endpoint}}{{userId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "GETALLUSERS",
+			"id": "ec05257c-b3a5-4bdf-a2f2-30d966f5da0a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BaseURL}}{{Get_AllUsers}}"
 			},
 			"response": []
 		}
