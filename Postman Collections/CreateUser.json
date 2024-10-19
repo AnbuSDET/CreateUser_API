@@ -75,7 +75,8 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": "{{BaseURL}}{{GetId_Endpoint}}"
 			},
 			"response": []
 		}
@@ -91,7 +92,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "bbd47300-26b0-42cf-947e-11ac3dcf9160",
+				"id": "5a9c130d-bbe7-40e2-a252-eb14adf44d7d",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -127,7 +128,7 @@
 					"\r",
 					"\t\t\t\t\t// Decide where to go next\r",
 					"\t\t\t\t\tif (currentRequest.data.length > 0) {\r",
-					"\t\t\t\t\t    pm.execution.setNextRequest(pm.info.requestName);\r",
+					"\t\t\t\t\t    pm.execution.setNextRequest(pm.info.GETUSER);\r",
 					"\t\t\t\t\t}\r",
 					"\r",
 					"\r",
@@ -139,7 +140,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "69d1cf12-de8a-488f-9dfb-c7f959a1cd17",
+				"id": "e1c244e9-5b44-4b93-a860-0de0d3b2e586",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
