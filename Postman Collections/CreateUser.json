@@ -84,7 +84,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{BaseURL}}{{GetId_Endpoint}}{{userId}}"
+				"url": "{{BaseURL}}{{GetId_Endpoint}}{{USER_ID}}"
 			},
 			"response": []
 		},
