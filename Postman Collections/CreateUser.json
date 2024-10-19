@@ -95,8 +95,9 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "DELETE",
+				"header": [],
+				"url": "{{BaseURL}}{{Delete_Endpoint}}{{USER_ID}}"
 			},
 			"response": []
 		}
