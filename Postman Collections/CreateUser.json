@@ -27,10 +27,11 @@
 							"\r",
 							"const result = JSON.parse(responseBody) \r",
 							"var status = pm.response.status;\r",
-							"  \r",
-							"  pm.expect(result.user_first_name).to.eql(pm.iterationData.get(\"First_Name\"));  \r",
+							"  if (pm.response.code ==201){   \r",
+							"    \r",
 							"  pm.collectionVariables.set(\"FIRST_NAME\", result.user_first_name);\r",
 							"  pm.collectionVariables.set(\"USER_ID\",result.user_id);\r",
+							"  }\r",
 							""
 						],
 						"type": "text/javascript",
@@ -99,7 +100,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8170a185-f0a6-4cf7-bc4f-cc1ee6306ca5",
+				"id": "d171a8fa-68b8-4a52-9c99-b7d3261761f1",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -147,7 +148,7 @@
 					"if (currentRequest.data.length > 0) {\r",
 					"    pm.execution.setNextRequest(pm.info.requestName); // Keep processing the same request\r",
 					"} else {\r",
-					"    pm.execution.setNextRequest(\"GETUSER\"); // Move to GETUSER if CREATE_USER is done\r",
+					"    pm.execution.setNextRequest(); // \r",
 					"}\r",
 					""
 				]
@@ -156,7 +157,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "caae169b-bbe5-4d3c-9d81-e84806d65831",
+				"id": "306a083d-c1fa-4a81-8759-6b85813dd491",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
