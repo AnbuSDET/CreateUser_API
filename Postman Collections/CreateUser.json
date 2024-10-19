@@ -105,7 +105,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "05eead96-1cae-47fc-bdee-f25b0f86246d",
+				"id": "7ceb87b7-be8a-46c9-b786-d92d1a2a3017",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -113,7 +113,7 @@
 					"if (typeof pm.variables.get('requestsData') !== 'object') {\r",
 					"    pm.variables.set('requestsData', pm.iterationData.toObject());\r",
 					"}\r",
-					"\r",
+					"console.log('requestsData:', requestsData); \r",
 					"const requestsData = pm.variables.get('requestsData');\r",
 					"\r",
 					"// Check if requestsData is valid\r",
@@ -160,7 +160,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a923df15-8069-459d-8fd2-7b57fa298de8",
+				"id": "c97b7da1-2077-4e02-ba77-ea145b8ff73f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
