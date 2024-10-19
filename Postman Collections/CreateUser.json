@@ -68,19 +68,6 @@
 			"response": []
 		},
 		{
-			"name": "GETUSER",
-			"id": "7fe85bc2-a107-4b30-b40a-4442fe1b29c9",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "{{BaseURL}}{{GetId_Endpoint}}{{userId}}"
-			},
-			"response": []
-		},
-		{
 			"name": "GETALLUSERS",
 			"id": "ec05257c-b3a5-4bdf-a2f2-30d966f5da0a",
 			"protocolProfileBehavior": {
@@ -90,6 +77,19 @@
 				"method": "GET",
 				"header": [],
 				"url": "{{BaseURL}}{{Get_AllUsers}}"
+			},
+			"response": []
+		},
+		{
+			"name": "GETUSER",
+			"id": "7fe85bc2-a107-4b30-b40a-4442fe1b29c9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BaseURL}}{{GetId_Endpoint}}{{userId}}"
 			},
 			"response": []
 		}
@@ -105,7 +105,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5a9c130d-bbe7-40e2-a252-eb14adf44d7d",
+				"id": "c1b0edc3-97b2-4d5e-a007-d53a5d4ff7ab",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -140,11 +140,11 @@
 					"\t\t\t\t\t//pm.variables.set(\"first_name\",currentRequest.data.user_first_name);\r",
 					"\r",
 					"\t\t\t\t\t// Decide where to go next\r",
-					"\t\t\t\t\tif (currentRequest.data.length > 0) {\r",
-					"\t\t\t\t\t    pm.execution.setNextRequest(pm.info.GETUSER);\r",
-					"\t\t\t\t\t}\r",
+					"\t\t\t\t\t\r",
 					"\r",
-					"\r",
+					"       if (currentRequest.data.length > 0) {\r",
+					"    pm.execution.setNextRequest(\"GETUSER\");\r",
+					"}\r",
 					"\r",
 					""
 				]
@@ -153,7 +153,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e1c244e9-5b44-4b93-a860-0de0d3b2e586",
+				"id": "3752b3ff-8609-4029-b0d9-7a4885619a7a",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
