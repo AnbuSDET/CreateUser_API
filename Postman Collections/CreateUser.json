@@ -27,12 +27,6 @@
 							"\r",
 							"const result = JSON.parse(responseBody) \r",
 							"var status = pm.response.status;\r",
-							"\r",
-							"pm.test(\"Validate CreateUser \", () => {\r",
-							"    const expectedStatusCode = pm.iterationData.get(\"Exp_statusCode\");\r",
-							"  pm.expect(pm.response.code).to.be.eql(expectedStatusCode); \r",
-							"\r",
-							"});\r",
 							"  \r",
 							"  pm.expect(result.user_first_name).to.eql(pm.iterationData.get(\"First_Name\"));  \r",
 							"  pm.collectionVariables.set(\"FIRST_NAME\", result.user_first_name);\r",
@@ -105,7 +99,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e115db5c-9473-412c-a1cb-383626de0135",
+				"id": "8170a185-f0a6-4cf7-bc4f-cc1ee6306ca5",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -139,6 +133,14 @@
 					"    pm.variables.set(key, value); // Set each variable in Postman\r",
 					"}\r",
 					"\r",
+					"const expectedStatusCode = variables.expectedStatusCode;\r",
+					"pm.test(`Expected status code is ${expectedStatusCode}`, function () {\r",
+					"    if (pm.response) {\r",
+					"        pm.response.to.have.status(expectedStatusCode);\r",
+					"    } else {\r",
+					"        console.log('Response is not defined');\r",
+					"    }\r",
+					"});\r",
 					"\r",
 					"\r",
 					"// Decide where to go next\r",
@@ -154,7 +156,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "5bb79e3e-9565-4628-9430-41982df9c3e7",
+				"id": "caae169b-bbe5-4d3c-9d81-e84806d65831",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
