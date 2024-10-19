@@ -113,7 +113,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d171a8fa-68b8-4a52-9c99-b7d3261761f1",
+				"id": "7ed69876-1847-4d74-94c6-dd633a6939ec",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -152,7 +152,7 @@
 					"    if (pm.response) {\r",
 					"        pm.response.to.have.status(expectedStatusCode);\r",
 					"    } else {\r",
-					"        console.log('Response is not defined');\r",
+					"        \r",
 					"    }\r",
 					"});\r",
 					"\r",
@@ -170,7 +170,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "306a083d-c1fa-4a81-8759-6b85813dd491",
+				"id": "700a9728-df1f-44b5-ba25-d3a5b08bbe86",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
