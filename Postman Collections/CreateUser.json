@@ -105,7 +105,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "7ceb87b7-be8a-46c9-b786-d92d1a2a3017",
+				"id": "d5b54c2e-1919-4a78-bb0b-e775076ea8c3",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -113,11 +113,12 @@
 					"if (typeof pm.variables.get('requestsData') !== 'object') {\r",
 					"    pm.variables.set('requestsData', pm.iterationData.toObject());\r",
 					"}\r",
-					"console.log('requestsData:', requestsData); \r",
+					"\r",
+					"// Initialize requestsData after setting it\r",
 					"const requestsData = pm.variables.get('requestsData');\r",
 					"\r",
 					"// Check if requestsData is valid\r",
-					"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {\r",
+					"if (typeof requestsData !== 'object' || !requestsData.requests || requestsData.requests.length === 0) {\r",
 					"    console.log('No external data provided or object is empty.');\r",
 					"    return; // Exit if there's no data\r",
 					"}\r",
@@ -139,7 +140,7 @@
 					"}\r",
 					"\r",
 					"// Validate the response based on the expected status code\r",
-					"const expectedStatusCode = variables.Exp_statusCode;\r",
+					"const expectedStatusCode = variables.expectedStatusCode;\r",
 					"pm.test(`Expected status code is ${expectedStatusCode}`, function () {\r",
 					"    pm.response.to.have.status(expectedStatusCode);\r",
 					"});\r",
@@ -147,11 +148,8 @@
 					"// Decide where to go next\r",
 					"if (currentRequest.data.length > 0) {\r",
 					"    pm.execution.setNextRequest(pm.info.requestName); // Keep processing the same request\r",
-					"} else  {   // If there are no more data, decide what to do next\r",
-					"   \r",
-					"        pm.execution.setNextRequest(\"GETUSER\"); // Move to GETUSER if CREATE_USER is done\r",
-					"     \r",
-					"    \r",
+					"} else {\r",
+					"    pm.execution.setNextRequest(\"GETUSER\"); // Move to GETUSER if CREATE_USER is done\r",
 					"}\r",
 					""
 				]
@@ -160,7 +158,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c97b7da1-2077-4e02-ba77-ea145b8ff73f",
+				"id": "769930af-b471-4552-bf86-2317531badcc",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
