@@ -105,7 +105,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c1b0edc3-97b2-4d5e-a007-d53a5d4ff7ab",
+				"id": "a5570109-8398-4eba-96d4-e60851c80fd6",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -136,7 +136,7 @@
 					"\r",
 					"\t\t\t\t\t}\r",
 					"\t\t\t\t\t\r",
-					"\t\t\t\t\tpm.variables.set('requestsData', requestsData);\r",
+					"\t\t\t\t\t//pm.variables.set('requestsData', requestsData);\r",
 					"\t\t\t\t\t//pm.variables.set(\"first_name\",currentRequest.data.user_first_name);\r",
 					"\r",
 					"\t\t\t\t\t// Decide where to go next\r",
@@ -153,7 +153,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3752b3ff-8609-4029-b0d9-7a4885619a7a",
+				"id": "edb33a8f-0ea3-4c4f-bb36-e42394057f55",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
