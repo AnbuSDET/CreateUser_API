@@ -105,7 +105,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e5b45432-0681-4641-8b2b-a7bb28f438c6",
+				"id": "05eead96-1cae-47fc-bdee-f25b0f86246d",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -147,13 +147,11 @@
 					"// Decide where to go next\r",
 					"if (currentRequest.data.length > 0) {\r",
 					"    pm.execution.setNextRequest(pm.info.requestName); // Keep processing the same request\r",
-					"} else {\r",
-					"    // If there are no more data, decide what to do next\r",
-					"    if (pm.info.requestName === \"CREATE_USER\") {\r",
+					"} else  {   // If there are no more data, decide what to do next\r",
+					"   \r",
 					"        pm.execution.setNextRequest(\"GETUSER\"); // Move to GETUSER if CREATE_USER is done\r",
-					"    } else {\r",
-					"        console.log('No more requests to execute.');\r",
-					"    }\r",
+					"     \r",
+					"    \r",
 					"}\r",
 					""
 				]
@@ -162,7 +160,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "9ffefa21-d1c9-42fe-a054-a69fb7bdddd3",
+				"id": "a923df15-8069-459d-8fd2-7b57fa298de8",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
